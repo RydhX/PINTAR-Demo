@@ -13,6 +13,9 @@ const state = {
   floorId: null,
 };
 
+let renderToken = 0;
+const registry = new Map();
+
 /* ---------- ELEMEN HTML ---------- */
 const mapEl = document.getElementById("map");
 const titleEl = document.getElementById("title");
@@ -122,11 +125,12 @@ async function render() {
   detailEl.hidden = true;
   backBtn.hidden = state.view === "area";
   sidebarEl.hidden = state.view !== "plan";
+  MapView.detach();
 
   hintEl.textContent = {
     area: "Klik gedung yang disorot untuk melihat lantainya",
     floors: "",
-    plan: "Klik ruang pada denah, atau pilih dari daftar unit",
+    plan: "Klik ruang pada denah. Scroll untuk zoom, seret untuk menggeser",
   }[state.view];
 
   try {
@@ -136,6 +140,32 @@ async function render() {
   } catch (err) {
     console.error(err);
     mapEl.innerHTML = `<p class="error">Gagal memuat: ${err.message}</p>`;
+  }
+}
+
+function markZones() {
+  const svg = mapEl.querySelector("svg");
+  if (!svg) return;
+
+  svg.querySelectorAll("[id]").forEach((node) => {
+    if (node.id.startsWith("L2_")) {
+      node.classList.add("zone");
+    }
+  });
+}
+
+function buildRegistry(rooms = {}) {
+  registry.clear();
+  Object.entries(rooms).forEach(([roomId, room]) => {
+    registry.set(roomId, { room, el: findById(roomId) });
+  });
+  return registry;
+}
+
+function checkSvgAgainstData(rooms = {}) {
+  const missing = Object.keys(rooms).filter((roomId) => !findById(roomId));
+  if (missing.length) {
+    console.warn("Ruang tidak ada di SVG:", missing);
   }
 }
 
@@ -208,14 +238,27 @@ async function showFloorPlan() {
     el.addEventListener("click", () => selectRoom(roomId));
   });
 
+  markZones();
+  buildRegistry(f.rooms);
+  checkSvgAgainstData(f.rooms);
   addLabels(f.rooms);
   buildSummary(f.rooms);
   buildUnitList(f.rooms);
   applyFilter();
+
+  const svg = mapEl.querySelector("svg");
+  await new Promise((resolve) => requestAnimationFrame(resolve));
+  if (state.view !== "plan" || mapEl.querySelector("svg") !== svg) return;
+
+  MapView.attach(svg, {
+    planId: f.planId,
+    prefix: f.id + "_",
+    rooms: [...registry.values()].map((entry) => entry.el).filter(Boolean),
+  });
 }
 
 /* ---------- RINGKASAN + LEGENDA ---------- */
-function buildSummary(rooms) {
+function buildSummary(rooms = {}) {
   const list = Object.values(rooms);
 
   const rows = Object.entries(STATUS).map(([key, s]) => {
@@ -237,7 +280,7 @@ function buildSummary(rooms) {
 }
 
 /* ---------- DAFTAR UNIT ---------- */
-function buildUnitList(rooms) {
+function buildUnitList(rooms = {}) {
   unitListEl.innerHTML = "";
   Object.entries(rooms).forEach(([roomId, room]) => {
     const st = STATUS[statusOf(room)];
@@ -246,7 +289,7 @@ function buildUnitList(rooms) {
     item.dataset.id = roomId;
     item.style.setProperty("--c", st.color);
     item.innerHTML = `<b>${roomId}</b>
-                      <span>${room.tenant}</span>
+                      <span>${room.tenant || "-"}</span>
                       <small style="color:${st.color}">${st.label}</small>`;
     item.addEventListener("click", () => selectRoom(roomId));
     unitListEl.appendChild(item);
@@ -255,49 +298,54 @@ function buildUnitList(rooms) {
 
 /* ---------- PENCARIAN & FILTER ---------- */
 function applyFilter() {
-  const q = searchEl.value.trim().toLowerCase();
-  const wanted = statusEl.value; // "all" atau kunci STATUS
+  const floor = getFloor();
+  if (!floor) return;
 
-  Object.entries(getFloor().rooms).forEach(([roomId, room]) => {
+  const q = searchEl.value.trim().toLowerCase();
+  const wanted = statusEl.value;
+
+  Object.entries(floor.rooms).forEach(([roomId, room]) => {
     const match =
       (wanted === "all" || wanted === statusOf(room)) &&
-      (roomId + " " + room.tenant).toLowerCase().includes(q);
+      (roomId + " " + (room.tenant || "")).toLowerCase().includes(q);
 
     unitListEl
       .querySelector(`[data-id="${CSS.escape(roomId)}"]`)
       ?.toggleAttribute("hidden", !match);
     findById(roomId)?.classList.toggle("dimmed", !match);
     mapEl
-      .querySelector(`.room-label[data-room="${CSS.escape(roomId)}"]`)
+      .querySelector(`.room-label[data-room-id="${CSS.escape(roomId)}"]`)
       ?.classList.toggle("dimmed", !match);
   });
 }
 
 /* ---------- LABEL RUANG ---------- */
-function addLabels(rooms) {
+function addLabels(rooms = {}) {
   const svg = mapEl.querySelector("svg");
-  const FONT = 26; // satuan SVG, samakan dengan .room-label di CSS
+  if (!svg) return;
+
+  const FONT = 26;
 
   Object.entries(rooms).forEach(([roomId, room]) => {
     const el = findById(roomId);
     if (!el) return;
 
     const box = el.getBBox();
-    const text = room.status === "vacant" ? "KOSONG" : room.tenant;
+    const text = room.status === "vacant" ? "KOSONG" : (room.tenant || roomId);
 
-    // Pecah teks menjadi beberapa baris sesuai lebar ruang
     const maxChars = Math.max(6, Math.floor(box.width / (FONT * 0.6)));
     const lines = [];
     let line = "";
     text.split(" ").forEach((word) => {
-      if ((line + " " + word).trim().length > maxChars && line) {
+      const candidate = (line + " " + word).trim();
+      if (candidate.length > maxChars && line) {
         lines.push(line);
         line = word;
       } else {
-        line = (line + " " + word).trim();
+        line = candidate;
       }
     });
-    lines.push(line);
+    if (line) lines.push(line);
 
     const t = document.createElementNS(SVG_NS, "text");
     t.setAttribute("class", "room-label");
@@ -373,10 +421,13 @@ function showDetail(roomId) {
 
 /* ---------- TAHAP 5: KEMBALI ---------- */
 function goBack() {
-  if (state.view === "plan") state.view = "floors";
-  else if (state.view === "floors") {
+  if (state.view === "plan") {
+    state.view = "floors";
+    state.floorId = null;
+  } else if (state.view === "floors") {
     state.view = "area";
     state.buildingId = null;
+    state.floorId = null;
   }
   render();
 }
@@ -399,5 +450,6 @@ document.addEventListener(
 );
 
 /* ---------- MULAI ---------- */
+MapView.init(mapEl);
 prepareData();
 render();

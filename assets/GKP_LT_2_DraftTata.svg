@@ -1,137 +1,201 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="2500px" height="2000px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-viewBox="0 0 2500 2000"
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="6000px" height="8000px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 6000 8000"
  xmlns:xlink="http://www.w3.org/1999/xlink"
  xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
  <defs>
   <style type="text/css">
    <![CDATA[
     .str0 {stroke:yellow;stroke-width:2;stroke-miterlimit:22.9256}
-    .fil0 {fill:yellow}
+    .fil3 {fill:#5A6BCC}
+    .fil4 {fill:#99FFFF}
+    .fil1 {fill:#B1E879}
+    .fil2 {fill:yellow}
+    .fil0 {fill:#FFFFF5}
    ]]>
   </style>
  </defs>
  <g id="Layer_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <polygon id="L2_coridor" class="fil0 str0" points="1274.13,1322.87 1495.67,1101.34 2008.04,1613.71 2396.09,1613.71 2396.09,1219.7 1562.04,385.65 382.52,385.65 103.91,664.26 378.3,938.65 1102.91,938.65 1102.91,1251.95 ">
+  <rect class="fil0" width="6000" height="8000"/>
+  <g id="_1588738596288">
+   <path id="_77_ATH" class="fil1" d="M529.89 6817.23l3029.65 37.11 301.17 -433.1c0,0 59.18,-43.92 117.12,8.3 57.93,52.23 63.82,83.51 63.73,125.19 -0.09,41.67 -0.97,553.39 -0.97,553.39l-511.78 125.15 -1558.9 122.69 -1565.73 -18.68 -140.65 -448.79 -44.57 -668.38 -11.08 -2025.68 243.2 0.54c0,0 52.31,-0.74 54.27,35.52 1.97,36.26 -0.4,182.8 -0.4,182.8l24.94 2403.94zm5078.31 -2476.5l1.9 -200.37 -618.74 -8.15c0,0 -60.68,2.33 -60.53,-64.48 0.15,-66.8 -9.92,-1423.98 -9.92,-1423.98l118.79 2.23 -0.06 26.51 194.95 0.43 0.86 -385.73 -166.51 -0.37c0,0 -29.09,61.77 -82.17,61.65 -53.08,-0.11 -130.29,-0.29 -130.29,-0.29l0.26 -115.8 -124.45 -0.28 -0.25 112.97 -1426.31 -11.63c0,0 -97.01,-7.43 -96.72,-137.34 0.29,-129.92 2.28,-1030.61 2.28,-1030.61l42.32 0.1 73.11 -377.06 2588.71 596.31 0.89 54.38 10.31 1848.76 -2.34 1053.45 -5.28 2383.28 -1516.71 307.74 1.72 -774.52c0,0 6.31,-44.99 48.21,-44.9 41.91,0.1 139.94,0.31 139.94,0.31l1082.85 13.74 0.32 -143.6 -1222.34 -13.8c0,0 -51.65,3.51 -51.52,-52.95 0.13,-56.45 0.19,-87.13 0.19,-87.13l-8.64 -1600.64c0,0 4.19,-61.99 58.55,-60.46 54.36,1.53 264.2,0.58 264.2,0.58 0,0 75.91,-1.73 74.81,62.64 -1.09,64.38 -1.2,542.08 -1.2,542.08l172.18 0.38 -2.97 -244.47 -59.09 -0.14 -0.71 -317.26c0,0 2.71,-37.66 46.15,-37.56 43.43,0.09 555.77,0.47 555.77,0.47 0,0 -0.77,65.27 62.07,65.4l45.41 0.11zm-3729.72 -2928.82l-1.77 796.64c-0.13,59.51 48.45,108.3 107.96,108.43l378.08 0.84 29.38 0.06 448.23 1c76.7,0.17 139.6,-62.45 139.77,-139.15l1.87 -844.54 -617.06 -1.37 -0.18 79.17 -486.28 -1.08zm2310.64 4304.62l3.17 -1428.73c0.03,-12.73 10.45,-23.1 23.16,-23.07 12.72,0.03 23.09,10.44 23.07,23.17l-3.18 1428.73c-0.02,12.73 -10.45,23.1 -23.16,23.07 -12.71,-0.03 -23.09,-10.45 -23.06,-23.17zm23.84 -2190.55l-1.09 491.33c-0.1,41.44 33.73,75.41 75.17,75.5l364.94 0.81c46.01,0.1 83.73,-37.45 83.83,-83.45l1.07 -483.03 -523.92 -1.16zm-2340.4 552.75l3.61 -1626.34 2198 4.87 -0.02 6.33c0.01,-3.48 2.86,-6.32 6.35,-6.31l565.59 1.25c47.96,0.11 87.1,39.43 87,87.39l-1.72 774.19c-0.09,38.04 -31.28,69.09 -69.31,69.01l-583.63 -1.3c-3.49,0 -6.32,-2.86 -6.31,-6.34l-1.56 702.13 -2198 -4.88zm-128.11 -0.29l3.61 -1626.34 -1033.36 -2.29c-48.04,-0.11 -87.44,39.11 -87.54,87.16l-3.19 1436.95c-0.13,56.12 45.69,102.14 101.81,102.26l1018.67 2.26zm934.46 1616.44l-383.68 323.29c0,0 -24.3,58.8 51.51,65.69 75.8,6.89 1579.01,7.74 1579.01,7.74 0,0 68.63,9.13 68.71,-23.11 0.07,-32.25 0.24,-112.29 0.24,-112.29 0,0 -46.15,-58.53 -82.56,-58.61 -36.42,-0.08 -36.42,-0.08 -36.42,-0.08l-969.21 -9.01 -227.6 -193.62zm-864.62 366.95l237.64 18.17 444.83 -374.12 -15.17 -90.3 -724.46 -253.95 -77.5 -0.17 11.22 599.35 123.44 101.02zm-1163.6 -915.99l1.95 -881.72c0,0 -3.8,-49.89 67.42,-49.73 71.23,0.16 77.57,0.17 77.57,0.17l1766.7 3.92c0,0 51.46,-2.03 51.39,31.09 -0.08,33.11 -0.37,166.88 -0.37,166.88l-79.13 106.97 -0.07 29.18 58.71 0.13 0.07 -33.56 80.76 -98.15 0.36 -163.88c0,0 -1.77,-47.77 50.67,-47.65 52.44,0.11 1196.98,2.65 1196.98,2.65 0,0 86.88,6.46 86.72,76.52 -0.15,70.05 11.87,1403.3 11.87,1403.3 0,0 -17.9,88.7 -83.55,88.55 -65.65,-0.15 -141.69,-0.32 -141.69,-0.32l-767.73 -1.7 -183.95 -143.03 -588.03 -489.84 -615.15 -1.36 -991.5 1.58zm-442.15 -1074.27l116.1 0.26 102.78 -80.1 3.33 -1499.25c0,0 -4.6,-35.14 -38,-35.21 -33.39,-0.07 -180.8,-0.4 -180.8,-0.4l-3.41 1614.7zm983.96 1938.37l1.49 -672.17c0.09,-38.29 31.48,-69.55 69.77,-69.46l221.55 0.49c38.29,0.08 69.55,31.48 69.46,69.77l-1.49 672.17c-0.08,38.29 -31.48,69.55 -69.77,69.46l-221.55 -0.49c-38.29,-0.08 -69.54,-31.48 -69.46,-69.77zm-542.36 -1.2l1.49 -672.18c0.09,-38.29 31.48,-69.54 69.77,-69.46l221.55 0.49c38.29,0.09 69.55,31.48 69.46,69.77l-1.49 672.18c-0.08,38.28 -31.48,69.54 -69.77,69.46l-221.55 -0.49c-38.29,-0.09 -69.54,-31.49 -69.46,-69.77zm1072.16 527.83l0.71 -320.95 1800.11 4c0,0 47.04,-3.34 46.97,29.6 -0.08,32.95 -0.51,226.22 -0.51,226.22 0,0 -14.25,85.18 -73.1,85.05 -58.86,-0.13 -1774.18,-23.92 -1774.18,-23.92zm-1069.25 -321.25l-0.52 234.16c0,0 4.51,91.95 93.3,92.14 88.79,0.2 163.3,0.37 163.3,0.37l649.83 1.44 0.72 -323.99 -906.63 -4.12z"/>
+   <rect class="fil2" transform="matrix(0.00767414 -3.45846 3.36389 0.00746429 677.33 4011.69)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(0.0124405 -5.60649 4.22017 0.00936432 1212.19 4012.87)" width="249" height="110"/>
+   <polygon class="fil2" points="696.14,3116.93 696.89,2777.18 949.18,2777.74 949.6,2589.36 1141.34,2589.78 1140.17,3117.92 "/>
+   <rect class="fil2" transform="matrix(0.00500551 -2.25581 2.39211 0.00530797 676.788 2740.13)" width="85" height="90"/>
+   <rect class="fil2" transform="matrix(0.00429939 -1.93758 1.83147 0.00406392 1048.82 3353.05)" width="85" height="90"/>
+   <path class="fil2" d="M627.59 2171.52l2.56 -1153.81 1046.17 2.32 -2.56 1153.81c-0.15,66.61 -54.76,120.98 -121.37,120.83l-803.96 -1.78c-66.62,-0.15 -120.99,-54.76 -120.84,-121.37z"/>
+   <rect class="fil2" transform="matrix(0.0028402 -1.27998 3.05812 0.0067858 293.051 1335.67)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(0.000697073 -0.314146 1.315 0.00291791 292.879 1413.9)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(0.00596545 -2.68842 2.59935 0.00576783 2271.81 4015.23)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(0.00467642 -2.1075 2.59935 0.00576783 2273.3 3345.81)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(0.00419445 -1.89029 2.90518 0.00644643 2971.51 4016.78)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(0.00452651 -2.03994 2.07949 0.00461428 2842.27 3135.15)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(0.00452651 -2.03994 2.47705 0.00549645 3303.12 3136.17)" width="249" height="110"/>
+   <path class="fil2" d="M253.09 4185.67l-0.34 154.74 252.29 0.56 0.23 -104.28c0.06,-27.75 -22.59,-50.51 -50.34,-50.57l-201.84 -0.45z"/>
+   <rect class="fil2" transform="matrix(0.00397695 -1.79227 2.17123 0.00481785 3714.92 4018.43)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(0.00116911 -0.526874 2.17123 0.00481785 3716.04 3513.84)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(0.002608 -1.17533 1.10091 0.00244287 3716.46 3325.47)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(0.00137896 -0.621447 3.66971 0.00814289 3837.56 3325.74)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(0.00137896 -0.621447 2.5688 0.00570002 4241.23 3326.63)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(0.00397695 -1.79227 2.59935 0.00576783 4354.06 4019.85)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(0.0107018 -4.82294 5.47397 0.0121464 4986.31 4095.26)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(0.00956269 -4.30956 1.16206 0.00257855 5588.73 3968.76)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(0.00956269 -4.30956 1.89604 0.00420721 5716.56 3969.05)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(0.00209837 -0.945661 2.23242 0.00495362 5678.75 4332.26)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(0.00527597 -2.37769 2.59939 0.00576791 3416.82 4956.3)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(0.00746429 -3.36389 3.36389 0.00746429 1885.66 2184.4)" width="202" height="51"/>
+   <polygon class="fil2" points="2057.22,2184.78 2058.73,1505.28 1887.17,1504.9 1887.39,1407.34 2058.95,1407.72 2154.6,1407.94 2358.34,1408.39 2356.61,2185.45 "/>
+   <polygon class="fil2" points="2511.35,2185.79 2512.85,1506.29 2513.26,1324.64 2873.2,1325.44 2872.79,1507.09 2980.44,1507.32 2978.93,2186.83 "/>
+   <rect class="fil2" transform="matrix(0.0109378 -4.92928 6.99156 0.0155139 3214.4 2187.35)" width="202" height="51"/>
+   <rect class="fil2" transform="matrix(0.0109378 -4.92928 6.46392 0.0143431 3661.8 2188.34)" width="202" height="51"/>
+   <rect class="fil2" transform="matrix(0.0102727 -4.62952 4.94682 0.0109767 4025.1 2189.15)" width="202" height="51"/>
+   <polygon class="fil2" points="4311.03,2189.78 4313.05,1281.53 4380.33,1281.68 4380.11,1382.6 4602.11,1383.09 4600.32,2190.43 "/>
+   <rect class="fil2" transform="matrix(0.00110856 -0.49959 4.35311 0.00965932 4380.11 1382.6)" width="202" height="51"/>
+   <rect class="fil2" transform="matrix(0.00461899 -2.08162 6.33195 0.0140503 4633.97 2190.5)" width="202" height="51"/>
+   <rect class="fil2" transform="matrix(0.00303008 -1.36555 6.33195 0.0140503 4634.9 1770.02)" width="202" height="51"/>
+   <rect class="fil2" transform="matrix(0.00764908 -3.44717 12.5321 0.027808 5024.18 2191.37)" width="202" height="51"/>
+   <rect class="fil2" transform="matrix(0.00458203 -2.06496 4.22138 0.00936701 5663.31 2192.78)" width="202" height="51"/>
+   <rect class="fil2" transform="matrix(0.00306705 -1.38221 4.22138 0.00936701 5664.24 1775.66)" width="202" height="51"/>
+   <rect class="fil2" transform="matrix(0.00262358 -1.18236 6.66187 0.0147823 5295.77 2588.91)" width="202" height="51"/>
+   <rect class="fil2" transform="matrix(0.00262358 -1.18236 2.83632 0.00629365 5733.07 2589.88)" width="202" height="51"/>
+   <polygon class="fil2" points="5035.81,1495.06 5036.4,1228.27 5493.5,1333.56 5493.14,1496.08 "/>
+   <polygon class="fil2" points="1975.94,520.51 1886.76,907.69 2973.93,1160.9 3063.12,773.73 "/>
+   <rect class="fil2" transform="matrix(0.5053 -2.19356 2.19356 0.5053 3025.72 936.051)" width="74" height="74"/>
+   <rect class="fil2" transform="matrix(0.791207 -3.43471 3.43471 0.791207 3281.9 1020.58)" width="39.59" height="76.82"/>
+   <rect class="fil2" transform="matrix(0.700768 -3.04211 3.04211 0.700768 3761.19 1062.16)" width="39.59" height="76.82"/>
+   <rect class="fil2" transform="matrix(0.00224828 -1.01322 5.71864 0.0126894 3963.01 2878.61)" width="249" height="110"/>
+   <rect class="fil2" transform="matrix(-0.696892 -3.42595 3.42595 -0.696892 4829.43 6845.98)" width="49.35" height="103.26"/>
+   <rect class="fil2" transform="matrix(-0.721285 -3.54591 3.54591 -0.721285 5225.3 6765.95)" width="48.03" height="48.03"/>
+   <polygon class="fil2" points="293.76,1016.96 295.44,261.03 395.63,161.28 404.42,161.3 1975.33,523.16 1947.71,643.08 1288.7,641.61 1288.34,806.13 675.48,804.76 675.01,1017.81 "/>
+   <polygon class="fil2" points="675.01,1017.81 675.48,804.76 1288.34,806.13 1288.7,641.61 1677.16,642.48 1947.71,643.08 1896.97,863.33 1676.67,862.84 1676.32,1020.03 1287.87,1019.17 "/>
+   <polygon id="GD_GPT" class="fil3" points="5029.4,5898.41 5030.83,5255.9 4465.7,5254.65 4466.41,4931.72 5031.55,4932.97 5032.51,4499.03 4988.78,4498.93 4988.93,4428.29 5032.67,4428.39 5066.61,4428.46 5150.4,4428.65 5150.75,4270.54 5355.95,4271 5355.6,4429.1 5577.62,4429.6 5574.36,5899.61 "/>
+   <path id="GD_GAK3" class="fil4" d="M2929.93 4558.28l0.44 -195.11 487.76 1.08 -0.53 242.2 -440.68 -0.97c-25.9,-0.06 -47.04,-21.3 -46.99,-47.2z"/>
+   <rect class="fil2" transform="matrix(0.00746429 -3.36389 3.36389 0.00746429 4661.24 6863.79)" width="15.75" height="17.18"/>
+   <rect class="fil2" transform="matrix(0.0291775 -13.1492 3.36389 0.00746429 4661.35 6810.82)" width="15.75" height="17.18"/>
+   <rect class="fil2" transform="matrix(0.00746429 -3.36389 3.36389 0.00746429 4604.03 6603.64)" width="15.75" height="17.18"/>
+   <rect class="fil2" transform="matrix(0.00746429 -3.36389 3.36389 0.00746429 4546.25 6603.51)" width="15.75" height="17.18"/>
+  </g>
+  <polygon id="L2_coridor" class="fil2 str0" points="2260.28,5470.73 2481.82,5249.2 2994.19,5761.58 3382.24,5761.58 3382.24,5367.56 2548.19,4533.51 1368.67,4533.51 1090.06,4812.12 1364.45,5086.51 2089.06,5086.51 2089.06,5399.81 ">
    <metadata id="CorelCorpID_1">
     <xodm:odm xodm:name="JENIS" xodm:value="koridor" xodm:type="0"/>
    </metadata>
   </polygon>
-  <polygon id="L2_R01" class="fil0 str0" points="356.91,633.65 665.91,633.65 665.91,385.65 383.13,385.65 356.91,411.88 ">
+  <polygon id="L2_R01" class="fil2 str0" points="1343.06,4781.51 1652.06,4781.51 1652.06,4533.51 1369.28,4533.51 1343.06,4559.74 ">
    <metadata id="CorelCorpID_2">
     <xodm:odm xodm:name="NOMOR" xodm:value="01" xodm:type="0"/>
     <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
    </metadata>
   </polygon>
-  <polygon id="L2_R02" class="fil0 str0" points="665.91,633.65 974.91,633.65 974.91,385.65 665.91,385.65 ">
+  <polygon id="L2_R02" class="fil2 str0" points="1652.06,4781.51 1961.06,4781.51 1961.06,4533.51 1652.06,4533.51 ">
    <metadata id="CorelCorpID_3">
     <xodm:odm xodm:name="NOMOR" xodm:value="02" xodm:type="0"/>
     <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
    </metadata>
   </polygon>
-  <polygon id="L2_R04" class="fil0 str0" points="377.4,938.65 665.91,938.65 665.91,709.65 356.91,709.65 356.91,918.15 ">
+  <polygon id="L2_R04" class="fil2 str0" points="1363.55,5086.51 1652.06,5086.51 1652.06,4857.51 1343.06,4857.51 1343.06,5066.01 ">
    <metadata id="CorelCorpID_4">
     <xodm:odm xodm:name="NOMOR" xodm:value="04" xodm:type="0"/>
     <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
    </metadata>
   </polygon>
-  <polygon id="L2_R05" class="fil0 str0" points="665.91,938.65 974.91,938.65 974.91,709.65 665.91,709.65 ">
+  <polygon id="L2_R05" class="fil2 str0" points="1652.06,5086.51 1961.06,5086.51 1961.06,4857.51 1652.06,4857.51 ">
    <metadata id="CorelCorpID_5">
     <xodm:odm xodm:name="NOMOR" xodm:value="05" xodm:type="0"/>
     <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
    </metadata>
   </polygon>
-  <polygon id="L2_R05B" class="fil0 str0" points="974.91,938.65 1102.91,938.65 1102.91,872.65 974.91,872.65 ">
+  <polygon id="L2_R05B" class="fil2 str0" points="1961.06,5086.51 2089.06,5086.51 2089.06,5020.51 1961.06,5020.51 ">
    <metadata id="CorelCorpID_6">
     <xodm:odm xodm:name="NOMOR" xodm:value="05" xodm:type="0"/>
     <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
    </metadata>
   </polygon>
-  <polygon id="L2_R10" class="fil0 str0" points="2238.84,1413.17 2020.34,1194.68 2195.7,1019.31 2395.66,1219.27 2395.66,1256.35 ">
+  <polygon id="L2_R10" class="fil2 str0" points="3224.99,5561.03 3006.49,5342.54 3181.85,5167.17 3381.81,5367.13 3381.81,5404.22 ">
    <metadata id="CorelCorpID_7">
     <xodm:odm xodm:name="NOMOR" xodm:value="08" xodm:type="0"/>
     <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
    </metadata>
   </polygon>
-  <polygon id="L2_R09" class="fil0 str0" points="2020.34,1194.68 1801.85,976.18 1977.21,800.82 2195.7,1019.31 ">
+  <polygon id="L2_R09" class="fil2 str0" points="3006.49,5342.54 2788,5124.04 2963.36,4948.68 3181.85,5167.17 ">
    <metadata id="CorelCorpID_8">
     <xodm:odm xodm:name="NOMOR" xodm:value="09" xodm:type="0"/>
     <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
    </metadata>
   </polygon>
-  <polygon id="L2_R07" class="fil0 str0" points="2008.68,1614.35 1804.67,1410.35 1966.6,1248.42 2185.1,1466.91 2037.66,1614.35 ">
+  <polygon id="L2_R07" class="fil2 str0" points="2994.83,5762.21 2790.82,5558.21 2952.75,5396.28 3171.25,5614.77 3023.81,5762.21 ">
    <metadata id="CorelCorpID_9">
     <xodm:odm xodm:name="NOMOR" xodm:value="07" xodm:type="0"/>
     <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
    </metadata>
   </polygon>
-  <polygon id="L2_R06" class="fil0 str0" points="1804.67,1410.35 1586.18,1191.85 1748.11,1029.92 1966.6,1248.42 ">
+  <polygon id="L2_R06" class="fil2 str0" points="2790.82,5558.21 2572.33,5339.71 2734.26,5177.78 2952.75,5396.28 ">
    <metadata id="CorelCorpID_10">
     <xodm:odm xodm:name="NOMOR" xodm:value="06" xodm:type="0"/>
     <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
    </metadata>
   </polygon>
-  <polygon id="L2_R06B" class="fil0 str0" points="1586.18,1191.85 1495.67,1101.34 1542.34,1054.67 1632.85,1145.18 ">
+  <polygon id="L2_R06B" class="fil2 str0" points="2572.33,5339.71 2481.82,5249.2 2528.49,5202.53 2619,5293.04 ">
    <metadata id="CorelCorpID_11">
     <xodm:odm xodm:name="NOMOR" xodm:value="06" xodm:type="0"/>
     <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
    </metadata>
   </polygon>
-  <polygon id="L2_SH01" class="fil0 str0" points="1542.34,1054.67 1360.32,872.65 1360.32,872.65 1102.91,872.65 1102.91,1251.95 1102.91,1251.95 1274.13,1322.87 ">
+  <polygon id="L2_SH01" class="fil2 str0" points="2528.49,5202.53 2346.47,5020.51 2346.47,5020.51 2089.06,5020.51 2089.06,5399.81 2089.06,5399.81 2260.28,5470.73 ">
    <metadata id="CorelCorpID_12">
     <xodm:odm xodm:name="JENIS" xodm:value="SHOWROOM" xodm:type="0"/>
    </metadata>
   </polygon>
-  <polygon id="L2_LF04" class="fil0 str0" points="1379.11,568.38 1329.07,547.65 1306.31,602.59 1356.35,623.32 ">
+  <polygon id="L2_LF04" class="fil2 str0" points="2365.26,4716.24 2315.22,4695.51 2292.46,4750.45 2342.5,4771.18 ">
    <metadata id="CorelCorpID_13">
     <xodm:odm xodm:name="JENIS" xodm:value="lift" xodm:type="0"/>
    </metadata>
   </polygon>
-  <polygon id="L2_LF03" class="fil0 str0" points="1353.7,629.71 1303.66,608.98 1280.91,663.93 1330.94,684.65 ">
+  <polygon id="L2_LF03" class="fil2 str0" points="2339.85,4777.57 2289.81,4756.84 2267.06,4811.79 2317.09,4832.51 ">
    <metadata id="CorelCorpID_14">
     <xodm:odm xodm:name="JENIS" xodm:value="lift" xodm:type="0"/>
    </metadata>
   </polygon>
-  <path id="L2_TL02" class="fil0 str0" d="M1386.18 385.65l-108.27 0 -48 0 -41 0c0,82.67 0,165.33 0,248l89 0 42.19 -101.85 -43.19 -18.15 15.39 -38 56.6 0 37.28 -90z">
+  <path id="L2_TL02" class="fil2 str0" d="M2372.33 4533.51l-108.27 0 -48 0 -41 0c0,82.67 0,165.34 0,248l89 0 42.19 -101.85 -43.19 -18.15 15.39 -38 56.6 0 37.28 -90z">
    <metadata id="CorelCorpID_15">
     <xodm:odm xodm:name="JENIS" xodm:value="toilet" xodm:type="0"/>
    </metadata>
   </path>
-  <polygon id="L2_ST02" class="fil0 str0" points="974.91,764.6 1162.91,764.6 1162.91,857.65 974.91,857.65 ">
+  <polygon id="L2_ST02" class="fil2 str0" points="1961.06,4912.46 2149.06,4912.46 2149.06,5005.51 1961.06,5005.51 ">
    <metadata id="CorelCorpID_16">
     <xodm:odm xodm:name="JENIS" xodm:value="tangga" xodm:type="0"/>
    </metadata>
   </polygon>
-  <polygon id="L2_LF02" class="fil0 str0" points="1562.19,644.21 1612.23,664.94 1589.47,719.88 1539.43,699.15 ">
+  <polygon id="L2_LF02" class="fil2 str0" points="2548.34,4792.07 2598.38,4812.8 2575.62,4867.74 2525.58,4847.01 ">
    <metadata id="CorelCorpID_17">
     <xodm:odm xodm:name="JENIS" xodm:value="lift" xodm:type="0"/>
    </metadata>
   </polygon>
-  <polygon id="L2_LF01" class="fil0 str0" points="1536.78,705.54 1586.82,726.27 1564.06,781.21 1514.03,760.49 ">
+  <polygon id="L2_LF01" class="fil2 str0" points="2522.93,4853.41 2572.97,4874.13 2550.21,4929.07 2500.18,4908.35 ">
    <metadata id="CorelCorpID_18">
     <xodm:odm xodm:name="JENIS" xodm:value="lift" xodm:type="0"/>
    </metadata>
   </polygon>
-  <path id="L2_TL01" class="fil0 str0" d="M1686.4 510.01l76.55 76.55 33.95 33.95 28.99 28.99c-58.46,58.45 -116.91,116.9 -175.37,175.36l-62.93 -62.93 42.19 -101.86 43.37 17.71 15.99 -37.75 -40.02 -40.02 37.28 -90z">
+  <path id="L2_TL01" class="fil2 str0" d="M2672.55 4657.87l76.55 76.55 33.95 33.95 28.99 28.99c-58.46,58.45 -116.91,116.91 -175.36,175.36l-62.94 -62.93 42.19 -101.86 43.37 17.71 15.99 -37.75 -40.02 -40.02 37.28 -90z">
    <metadata id="CorelCorpID_19">
     <xodm:odm xodm:name="JENIS" xodm:value="toilet" xodm:type="0"/>
    </metadata>
   </path>
-  <polygon id="L2_ST01" class="fil0 str0" points="1709.25,1068.77 1576.32,935.84 1510.52,1001.64 1643.45,1134.57 ">
+  <polygon id="L2_ST01" class="fil2 str0" points="2695.4,5216.63 2562.47,5083.7 2496.67,5149.5 2629.6,5282.43 ">
    <metadata id="CorelCorpID_20">
     <xodm:odm xodm:name="JENIS" xodm:value="tangga" xodm:type="0"/>
    </metadata>
   </polygon>
-  <polygon id="L2_R03" class="fil0 str0" points="974.91,633.65 1188.91,633.65 1188.91,385.65 974.91,385.65 ">
+  <polygon id="L2_R03" class="fil2 str0" points="1961.06,4781.51 2175.06,4781.51 2175.06,4533.51 1961.06,4533.51 ">
    <metadata id="CorelCorpID_21">
     <xodm:odm xodm:name="NOMOR" xodm:value="03" xodm:type="0"/>
     <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
    </metadata>
   </polygon>
-  <polygon id="L2_R08" class="fil0 str0" points="1801.85,976.18 1650.52,824.86 1825.89,649.5 1977.21,800.82 ">
+  <polygon id="L2_R08" class="fil2 str0" points="2788,5124.04 2636.68,4972.72 2812.04,4797.36 2963.36,4948.68 ">
    <metadata id="CorelCorpID_22">
     <xodm:odm xodm:name="NOMOR" xodm:value="10" xodm:type="0"/>
     <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
