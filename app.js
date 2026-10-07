@@ -21,6 +21,9 @@ const detailEl = document.getElementById("detail");
 const sidebarEl = document.getElementById("sidebar");
 const summaryEl = document.getElementById("summary");
 const unitListEl = document.getElementById("unitList");
+const searchEl = document.getElementById("search");
+const statusEl = document.getElementById("statusFilter");
+const hintEl = document.getElementById("hint");
 
 /* ---------- STATUS (warna ditentukan di satu tempat) ---------- */
 const STATUS = {
@@ -34,6 +37,15 @@ function statusOf(room) {
   if (room.payment === "Belum bayar") return "overdue";
   return "occupied";
 }
+
+statusEl.innerHTML =
+  '<option value="all">Semua status</option>' +
+  Object.entries(STATUS)
+    .map(([k, s]) => `<option value="${k}">${s.label}</option>`)
+    .join("");
+
+searchEl.addEventListener("input", applyFilter);
+statusEl.addEventListener("change", applyFilter);
 
 /* ---------- DATA ---------- */
 // Isi nilai bawaan satu kali, supaya data.js bisa singkat
@@ -110,6 +122,12 @@ async function render() {
   detailEl.hidden = true;
   backBtn.hidden = state.view === "area";
   sidebarEl.hidden = state.view !== "plan";
+
+  hintEl.textContent = {
+    area: "Klik gedung yang disorot untuk melihat lantainya",
+    floors: "",
+    plan: "Klik ruang pada denah, atau pilih dari daftar unit",
+  }[state.view];
 
   try {
     if (state.view === "area") await showArea();
@@ -193,6 +211,7 @@ async function showFloorPlan() {
   addLabels(f.rooms);
   buildSummary(f.rooms);
   buildUnitList(f.rooms);
+  applyFilter();
 }
 
 /* ---------- RINGKASAN + LEGENDA ---------- */
@@ -225,11 +244,32 @@ function buildUnitList(rooms) {
     const item = document.createElement("div");
     item.className = "unit-item";
     item.dataset.id = roomId;
+    item.style.setProperty("--c", st.color);
     item.innerHTML = `<b>${roomId}</b>
                       <span>${room.tenant}</span>
                       <small style="color:${st.color}">${st.label}</small>`;
     item.addEventListener("click", () => selectRoom(roomId));
     unitListEl.appendChild(item);
+  });
+}
+
+/* ---------- PENCARIAN & FILTER ---------- */
+function applyFilter() {
+  const q = searchEl.value.trim().toLowerCase();
+  const wanted = statusEl.value; // "all" atau kunci STATUS
+
+  Object.entries(getFloor().rooms).forEach(([roomId, room]) => {
+    const match =
+      (wanted === "all" || wanted === statusOf(room)) &&
+      (roomId + " " + room.tenant).toLowerCase().includes(q);
+
+    unitListEl
+      .querySelector(`[data-id="${CSS.escape(roomId)}"]`)
+      ?.toggleAttribute("hidden", !match);
+    findById(roomId)?.classList.toggle("dimmed", !match);
+    mapEl
+      .querySelector(`.room-label[data-room="${CSS.escape(roomId)}"]`)
+      ?.classList.toggle("dimmed", !match);
   });
 }
 
@@ -261,6 +301,7 @@ function addLabels(rooms) {
 
     const t = document.createElementNS(SVG_NS, "text");
     t.setAttribute("class", "room-label");
+    t.dataset.roomId = roomId;
     t.setAttribute("text-anchor", "middle");
     t.setAttribute("pointer-events", "none");
 
@@ -298,23 +339,33 @@ function selectRoom(roomId) {
 function showDetail(roomId) {
   const room = getFloor().rooms[roomId];
   const st = STATUS[statusOf(room)];
+  const d = daysLeft(room.end);
 
   const rows = [
-    ["Tenant", room.tenant],
-    ["Status", `<span style="color:${st.color}">${st.label}</span>`],
     ["Pembayaran", room.payment],
     ["Luas", room.area ? room.area + " m²" : "-"],
     ["Mulai sewa", fmtDate(room.start)],
     ["Berakhir", fmtDate(room.end)],
-    ["Sisa kontrak", remainingText(room.end)],
+    [
+      "Sisa kontrak",
+      remainingText(room.end),
+      d !== null && d <= 90 ? "warn" : "",
+    ],
     ["Sewa / bulan", fmtRupiah(room.rent)],
     ["PIC", room.pic || "-"],
     ["Kontak", room.contact || "-"],
   ];
 
   document.getElementById("dUnit").textContent = "Unit " + roomId;
+  document.getElementById("dTenant").textContent = room.tenant;
+  const pill = document.getElementById("dStatus");
+  pill.textContent = st.label;
+  pill.style.setProperty("--c", st.color);
   document.getElementById("dRows").innerHTML = rows
-    .map(([k, v]) => `<p>${k}: <b>${v}</b></p>`)
+    .map(
+      ([k, v, cls]) =>
+        `<div class="row ${cls || ""}"><span>${k}</span><b>${v}</b></div>`,
+    )
     .join("");
 
   detailEl.hidden = false;
@@ -331,6 +382,21 @@ function goBack() {
 }
 
 backBtn.addEventListener("click", goBack);
+
+function closeDetail() {
+  detailEl.hidden = true;
+  mapEl
+    .querySelectorAll(".room.selected")
+    .forEach((e) => e.classList.remove("selected"));
+  document
+    .querySelectorAll(".unit-item.active")
+    .forEach((i) => i.classList.remove("active"));
+}
+document.getElementById("closeDetail").addEventListener("click", closeDetail);
+document.addEventListener(
+  "keydown",
+  (e) => e.key === "Escape" && closeDetail(),
+);
 
 /* ---------- MULAI ---------- */
 prepareData();

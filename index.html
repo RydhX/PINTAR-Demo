@@ -9,21 +9,41 @@
 
   <body>
     <header class="topbar">
+      <div class="brand">
+        <span class="logo">P</span>
+        <div>
+          <b>PINTAR</b>
+          <small>Peta Interaktif Area &amp; Tenant PT INTI</small>
+        </div>
+      </div>
+      <button id="backBtn" hidden>← Kembali</button>
       <h1 id="title">Area 77</h1>
-      <button id="backBtn" hidden>Kembali</button>
     </header>
 
     <main class="layout">
       <aside id="sidebar" class="sidebar" hidden>
         <div id="summary" class="summary"></div>
+        <input
+          id="search"
+          type="search"
+          placeholder="Cari unit atau tenant..."
+        />
+        <select id="statusFilter"></select>
         <h3>Daftar Unit</h3>
         <div id="unitList"></div>
       </aside>
 
-      <section id="map"></section>
+      <div class="stage">
+        <section id="map"></section>
+        <div id="hint" class="hint"></div>
+      </div>
 
       <aside id="detail" class="detail" hidden>
+        <button id="closeDetail" class="close" aria-label="Tutup">×</button>
+        <div class="eyebrow">Detail unit</div>
         <h2 id="dUnit"></h2>
+        <span id="dStatus" class="pill"></span>
+        <p id="dTenant" class="tenant"></p>
         <div id="dRows"></div>
       </aside>
     </main>
