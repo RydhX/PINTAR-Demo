@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="2500px" height="2000px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 2500 2000"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:red;stroke-width:2;stroke-miterlimit:22.9256}
+    .fil0 {fill:none}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <polygon id="L2_coridor" class="fil0 str0" points="1274.13,1322.87 1495.67,1101.34 2008.04,1613.71 2396.09,1613.71 2396.09,1219.7 1562.04,385.65 382.52,385.65 103.91,664.26 378.3,938.65 1102.91,938.65 1102.91,1251.95 ">
+   <metadata id="CorelCorpID_1">
+    <xodm:odm xodm:name="JENIS" xodm:value="koridor" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <polygon id="L2_R01" class="fil0 str0" points="356.91,633.65 665.91,633.65 665.91,385.65 383.13,385.65 356.91,411.88 ">
+   <metadata id="CorelCorpID_2">
+    <xodm:odm xodm:name="NOMOR" xodm:value="01" xodm:type="0"/>
+    <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <polygon id="L2_R02" class="fil0 str0" points="665.91,633.65 974.91,633.65 974.91,385.65 665.91,385.65 ">
+   <metadata id="CorelCorpID_3">
+    <xodm:odm xodm:name="NOMOR" xodm:value="02" xodm:type="0"/>
+    <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <polygon id="L2_R03" class="fil0 str0" points="974.91,633.65 1188.91,633.65 1188.91,385.65 974.91,385.65 ">
+   <metadata id="CorelCorpID_4">
+    <xodm:odm xodm:name="NOMOR" xodm:value="03" xodm:type="0"/>
+    <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <polygon id="L2_R04" class="fil0 str0" points="377.4,938.65 665.91,938.65 665.91,709.65 356.91,709.65 356.91,918.15 ">
+   <metadata id="CorelCorpID_5">
+    <xodm:odm xodm:name="NOMOR" xodm:value="04" xodm:type="0"/>
+    <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <polygon id="L2_R05" class="fil0 str0" points="665.91,938.65 974.91,938.65 974.91,709.65 665.91,709.65 ">
+   <metadata id="CorelCorpID_6">
+    <xodm:odm xodm:name="NOMOR" xodm:value="05" xodm:type="0"/>
+    <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <polygon id="L2_R05B" class="fil0 str0" points="974.91,938.65 1102.91,938.65 1102.91,872.65 974.91,872.65 ">
+   <metadata id="CorelCorpID_7">
+    <xodm:odm xodm:name="NOMOR" xodm:value="05" xodm:type="0"/>
+    <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <polygon id="L2_R10" class="fil0 str0" points="2238.84,1413.17 2020.34,1194.68 2195.7,1019.31 2395.66,1219.27 2395.66,1256.35 ">
+   <metadata id="CorelCorpID_8">
+    <xodm:odm xodm:name="NOMOR" xodm:value="08" xodm:type="0"/>
+    <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <polygon id="L2_R09" class="fil0 str0" points="2020.34,1194.68 1801.85,976.18 1977.21,800.82 2195.7,1019.31 ">
+   <metadata id="CorelCorpID_9">
+    <xodm:odm xodm:name="NOMOR" xodm:value="09" xodm:type="0"/>
+    <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <polygon id="L2_R08" class="fil0 str0" points="1801.85,976.18 1650.52,824.86 1825.89,649.5 1977.21,800.82 ">
+   <metadata id="CorelCorpID_10">
+    <xodm:odm xodm:name="NOMOR" xodm:value="10" xodm:type="0"/>
+    <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <polygon id="L2_R07" class="fil0 str0" points="2008.68,1614.35 1804.67,1410.35 1966.6,1248.42 2185.1,1466.91 2037.66,1614.35 ">
+   <metadata id="CorelCorpID_11">
+    <xodm:odm xodm:name="NOMOR" xodm:value="07" xodm:type="0"/>
+    <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <polygon id="L2_R06" class="fil0 str0" points="1804.67,1410.35 1586.18,1191.85 1748.11,1029.92 1966.6,1248.42 ">
+   <metadata id="CorelCorpID_12">
+    <xodm:odm xodm:name="NOMOR" xodm:value="06" xodm:type="0"/>
+    <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <polygon id="L2_R06B" class="fil0 str0" points="1586.18,1191.85 1495.67,1101.34 1542.34,1054.67 1632.85,1145.18 ">
+   <metadata id="CorelCorpID_13">
+    <xodm:odm xodm:name="NOMOR" xodm:value="06" xodm:type="0"/>
+    <xodm:odm xodm:name="JENIS" xodm:value="ruang" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <polygon id="L2_SH01" class="fil0 str0" points="1542.34,1054.67 1360.32,872.65 1360.32,872.65 1102.91,872.65 1102.91,1251.95 1102.91,1251.95 1274.13,1322.87 ">
+   <metadata id="CorelCorpID_14">
+    <xodm:odm xodm:name="JENIS" xodm:value="SHOWROOM" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <polygon id="L2_LF04" class="fil0 str0" points="1379.11,568.38 1329.07,547.65 1306.31,602.59 1356.35,623.32 ">
+   <metadata id="CorelCorpID_15">
+    <xodm:odm xodm:name="JENIS" xodm:value="lift" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <polygon id="L2_LF03" class="fil0 str0" points="1353.7,629.71 1303.66,608.98 1280.91,663.93 1330.94,684.65 ">
+   <metadata id="CorelCorpID_16">
+    <xodm:odm xodm:name="JENIS" xodm:value="lift" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <path id="L2_TL02" class="fil0 str0" d="M1386.18 385.65l-108.27 0 -48 0 -41 0c0,82.67 0,165.33 0,248l89 0 42.19 -101.85 -43.19 -18.15 15.39 -38 56.6 0 37.28 -90z">
+   <metadata id="CorelCorpID_17">
+    <xodm:odm xodm:name="JENIS" xodm:value="toilet" xodm:type="0"/>
+   </metadata>
+  </path>
+  <polygon id="L2_ST02" class="fil0 str0" points="974.91,764.6 1162.91,764.6 1162.91,857.65 974.91,857.65 ">
+   <metadata id="CorelCorpID_18">
+    <xodm:odm xodm:name="JENIS" xodm:value="tangga" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <polygon id="L2_LF02" class="fil0 str0" points="1562.19,644.21 1612.23,664.94 1589.47,719.88 1539.43,699.15 ">
+   <metadata id="CorelCorpID_19">
+    <xodm:odm xodm:name="JENIS" xodm:value="lift" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <polygon id="L2_LF01" class="fil0 str0" points="1536.78,705.54 1586.82,726.27 1564.06,781.21 1514.03,760.49 ">
+   <metadata id="CorelCorpID_20">
+    <xodm:odm xodm:name="JENIS" xodm:value="lift" xodm:type="0"/>
+   </metadata>
+  </polygon>
+  <path id="L2_TL01" class="fil0 str0" d="M1686.4 510.01l76.55 76.55 33.95 33.95 28.99 28.99c-58.46,58.45 -116.91,116.9 -175.37,175.36l-62.93 -62.93 42.19 -101.86 43.37 17.71 15.99 -37.75 -40.02 -40.02 37.28 -90z">
+   <metadata id="CorelCorpID_21">
+    <xodm:odm xodm:name="JENIS" xodm:value="toilet" xodm:type="0"/>
+   </metadata>
+  </path>
+  <polygon id="L2_ST01" class="fil0 str0" points="1709.25,1068.77 1576.32,935.84 1510.52,1001.64 1643.45,1134.57 ">
+   <metadata id="CorelCorpID_22">
+    <xodm:odm xodm:name="JENIS" xodm:value="tangga" xodm:type="0"/>
+   </metadata>
+  </polygon>
+ </g>
+</svg>

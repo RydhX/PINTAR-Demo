@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+.topbar {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #ddd;
+}
+.layout {
+  display: flex;
+  height: calc(100vh - 56px);
+}
+#map {
+  flex: 1;
+  overflow: auto;
+}
+#map svg {
+  width: 100%;
+  height: 100%;
+}
+.detail {
+  width: 300px;
+  padding: 20px;
+  border-left: 1px solid #ddd;
+}
+
+.clickable {
+  cursor: pointer;
+}
+.room:hover {
+  fill-opacity: 0.6 !important;
+}
+.room.selected {
+  stroke: #1d4ed8;
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+}
+
+.floor-selection {
+  padding: 40px;
+}
+.floor-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+.floor-buttons button {
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.error {
+  padding: 40px;
+  color: #dc2626;
+  font-weight: bold;
+}
