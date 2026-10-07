@@ -1,10 +1,17 @@
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
 }
+
+[hidden] { display: none !important; }
+
+/* Header */
 .topbar {
   display: flex;
   gap: 16px;
@@ -12,55 +19,42 @@ body {
   padding: 12px 20px;
   border-bottom: 1px solid #ddd;
 }
-.layout {
-  display: flex;
-  height: calc(100vh - 56px);
-}
-#map {
-  flex: 1;
-  overflow: auto;
-}
-#map svg {
-  width: 100%;
-  height: 100%;
-}
-.detail {
-  width: 300px;
-  padding: 20px;
-  border-left: 1px solid #ddd;
-}
+.topbar h1 { margin: 0; font-size: 22px; }
 
-.clickable {
-  cursor: pointer;
-}
-.room:hover {
-  fill-opacity: 0.6 !important;
-}
-.room.selected {
-  stroke: #1d4ed8;
-  stroke-width: 3;
-  vector-effect: non-scaling-stroke;
-}
-.floor-selection {
-  padding: 40px;
-}
-.floor-buttons {
-  display: flex;
-  gap: 12px;
-  margin-top: 16px;
-}
-.floor-buttons button {
-  padding: 12px 24px;
-  font-size: 16px;
-  cursor: pointer;
-}
-.error {
-  padding: 40px;
-  color: #dc2626;
-  font-weight: bold;
-}
-.room-label {
-  font-size: 26px;
-  font-weight: 600;
-  fill: #1e293b;
-}
+/* Layout utama */
+.layout { flex: 1; min-height: 0; display: flex; }
+#map { flex: 1; overflow: auto; }
+#map svg { width: 100%; height: 100%; }
+
+/* Sidebar */
+.sidebar { width: 260px; padding: 16px; border-right: 1px solid #ddd; overflow-y: auto; }
+.sidebar h3 { margin: 0 0 8px; font-size: 14px; color: #475569; }
+.unit-item { display: flex; flex-direction: column; padding: 8px 10px; margin-bottom: 6px; border: 1px solid #e2e8f0; border-radius: 6px; cursor: pointer; }
+.unit-item:hover { background: #f1f5f9; }
+.unit-item.active { border-color: #1d4ed8; background: #eff6ff; }
+.unit-item span { font-size: 13px; }
+.unit-item small { font-weight: 600; }
+.legend-item { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 13px; }
+.swatch { width: 16px; height: 16px; border-radius: 3px; }
+
+/* Panel detail */
+.detail { width: 300px; padding: 20px; border-left: 1px solid #ddd; overflow-y: auto; }
+
+/* Interaksi peta */
+.clickable { cursor: pointer; }
+.room:hover { fill-opacity: 0.6 !important; }
+.room.selected { stroke: #1d4ed8; stroke-width: 3; vector-effect: non-scaling-stroke; }
+.room-label { font-size: 26px; font-weight: 600; fill: #1e293b; }
+
+/* Pilih lantai */
+.floor-selection { padding: 40px; }
+.floor-buttons { display: flex; gap: 12px; margin-top: 16px; }
+.floor-buttons button { padding: 12px 24px; font-size: 16px; cursor: pointer; }
+.error { padding: 40px; color: #dc2626; font-weight: bold; }
+
+/* Gedung di Area 77: warna asli tetap, hanya ada efek saat hover */
+.building { transition: filter 0.2s ease; }
+.building:hover { filter: brightness(1.15) drop-shadow(0 0 6px rgba(0, 0, 0, 0.45)); }
+
+/* Gedung yang belum tersedia: sedikit pudar, kursor biasa */
+.building.inactive { opacity: 0.6; cursor: not-allowed; }

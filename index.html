@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="id">
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,6 +15,13 @@
 
     <main class="layout">
       <section id="map"></section>
+      <aside id="sidebar" class="sidebar" hidden>
+        <h3>Daftar Unit</h3>
+        <div id="unitList"></div>
+
+        <h3>Legenda</h3>
+        <div id="legend"></div>
+      </aside>
 
       <aside id="detail" class="detail" hidden>
         <h2 id="dUnit"></h2>
@@ -27,6 +33,5 @@
 
     <script src="data.js"></script>
     <script src="app.js"></script>
-   </body>
-
-   </html>
+  </body>
+</html>

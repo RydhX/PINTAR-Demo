@@ -17,6 +17,9 @@ const mapEl = document.getElementById("map");
 const titleEl = document.getElementById("title");
 const backBtn = document.getElementById("backBtn");
 const detailEl = document.getElementById("detail");
+const sidebarEl = document.getElementById("sidebar");
+const unitListEl = document.getElementById("unitList");
+const legendEl = document.getElementById("legend");
 
 /* ---------- STATUS (warna ditentukan di satu tempat) ---------- */
 const STATUS = {
@@ -60,6 +63,7 @@ async function loadSVG(file) {
 async function render() {
   detailEl.hidden = true;
   backBtn.hidden = state.view === "area";
+  sidebarEl.hidden = state.view !== "plan"; // <- pindah ke sini
 
   try {
     if (state.view === "area") await showArea();
@@ -82,8 +86,8 @@ async function showArea() {
       console.warn("Polygon gedung tidak ditemukan:", b.polygonId);
       return;
     }
-    el.classList.add("clickable");
-    paint(el, b.active ? "#22c55e" : "#94a3b8", 0.5);
+    el.classList.add("clickable", "building");
+    if (!b.active) el.classList.add("inactive");
 
     el.addEventListener("click", () => {
       console.log("Gedung diklik:", b.id);
@@ -143,6 +147,33 @@ async function showFloorPlan() {
   });
 
   addLabels(f.rooms);
+  buildUnitList(f.rooms);
+}
+
+/* ---------- LEGENDA & DAFTAR UNIT ---------- */
+function buildLegend() {
+  legendEl.innerHTML = Object.values(STATUS)
+    .map(
+      (s) => `<div class="legend-item">
+                <span class="swatch" style="background:${s.color}"></span>${s.label}
+              </div>`,
+    )
+    .join("");
+}
+
+function buildUnitList(rooms) {
+  unitListEl.innerHTML = "";
+  Object.entries(rooms).forEach(([roomId, room]) => {
+    const st = STATUS[statusOf(room)];
+    const item = document.createElement("div");
+    item.className = "unit-item";
+    item.dataset.id = roomId;
+    item.innerHTML = `<b>${roomId}</b>
+                      <span>${room.tenant}</span>
+                      <small style="color:${st.color}">${st.label}</small>`;
+    item.addEventListener("click", () => selectRoom(roomId));
+    unitListEl.appendChild(item);
+  });
 }
 
 /* ---------- LABEL RUANG ---------- */
@@ -206,20 +237,11 @@ function selectRoom(roomId) {
     .forEach((e) => e.classList.remove("selected"));
   findById(roomId).classList.add("selected");
 
+  document
+    .querySelectorAll(".unit-item")
+    .forEach((i) => i.classList.toggle("active", i.dataset.id === roomId));
+
   showDetail(roomId);
-}
-
-function showDetail(roomId) {
-  const room = getFloor().rooms[roomId];
-  const st = STATUS[statusOf(room)];
-
-  document.getElementById("dUnit").textContent = "Unit " + roomId;
-  document.getElementById("dTenant").textContent = room.tenant;
-  document.getElementById("dStatus").textContent = st.label;
-  document.getElementById("dStatus").style.color = st.color;
-  document.getElementById("dPayment").textContent = room.payment;
-
-  detailEl.hidden = false;
 }
 
 /* ---------- TAHAP 5: KEMBALI ---------- */
@@ -236,4 +258,5 @@ function goBack() {
 backBtn.addEventListener("click", goBack);
 
 /* ---------- MULAI ---------- */
+buildLegend();
 render();
