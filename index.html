@@ -14,20 +14,17 @@
     </header>
 
     <main class="layout">
-      <section id="map"></section>
       <aside id="sidebar" class="sidebar" hidden>
+        <div id="summary" class="summary"></div>
         <h3>Daftar Unit</h3>
         <div id="unitList"></div>
-
-        <h3>Legenda</h3>
-        <div id="legend"></div>
       </aside>
+
+      <section id="map"></section>
 
       <aside id="detail" class="detail" hidden>
         <h2 id="dUnit"></h2>
-        <p>Tenant: <b id="dTenant"></b></p>
-        <p>Status: <b id="dStatus"></b></p>
-        <p>Pembayaran: <b id="dPayment"></b></p>
+        <div id="dRows"></div>
       </aside>
     </main>
 

@@ -4,12 +4,13 @@
    Aturan: klik hanya mengubah state, lalu render() menggambar ulang.
 ========================================================= */
 
+const SVG_NS = "http://www.w3.org/2000/svg";
+
 /* ---------- STATE ---------- */
 const state = {
   view: "area", // "area" | "floors" | "plan"
   buildingId: null,
   floorId: null,
-  roomId: null,
 };
 
 /* ---------- ELEMEN HTML ---------- */
@@ -18,8 +19,8 @@ const titleEl = document.getElementById("title");
 const backBtn = document.getElementById("backBtn");
 const detailEl = document.getElementById("detail");
 const sidebarEl = document.getElementById("sidebar");
+const summaryEl = document.getElementById("summary");
 const unitListEl = document.getElementById("unitList");
-const legendEl = document.getElementById("legend");
 
 /* ---------- STATUS (warna ditentukan di satu tempat) ---------- */
 const STATUS = {
@@ -34,36 +35,81 @@ function statusOf(room) {
   return "occupied";
 }
 
-/* ---------- BANTUAN ---------- */
+/* ---------- DATA ---------- */
+// Isi nilai bawaan satu kali, supaya data.js bisa singkat
+function prepareData() {
+  DATA.buildings.forEach((b) =>
+    b.floors.forEach((f) =>
+      Object.values(f.rooms).forEach((r) => {
+        r.tenant ??= r.status === "vacant" ? "Tersedia" : "-";
+        r.payment ??= "-";
+      }),
+    ),
+  );
+}
+
 const getBuilding = () => DATA.buildings.find((b) => b.id === state.buildingId);
 const getFloor = () => getBuilding().floors.find((f) => f.id === state.floorId);
 
+/* ---------- BANTUAN ---------- */
 function findById(id) {
   return mapEl.querySelector("#" + CSS.escape(id));
 }
 
-// Beri warna ke elemen. Jika id ada pada grup (<g>), warnai semua bentuk di dalamnya.
-function paint(el, color, opacity) {
-  const shapes = el.matches("path, polygon, rect")
-    ? [el]
-    : el.querySelectorAll("path, polygon, rect");
-  shapes.forEach((s) => {
-    s.style.fill = color;
-    s.style.fillOpacity = opacity;
-  });
+const fmtRupiah = (n) =>
+  typeof n === "number" ? "Rp " + n.toLocaleString("id-ID") : "-";
+
+const fmtDate = (s) =>
+  s
+    ? new Date(s).toLocaleDateString("id-ID", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })
+    : "-";
+
+const daysLeft = (end) =>
+  end ? Math.ceil((new Date(end) - new Date()) / 86400000) : null;
+
+function remainingText(end) {
+  const days = daysLeft(end);
+  if (days === null) return "-";
+  if (days < 0) return "Berakhir " + -days + " hari lalu";
+  if (days <= 90) return days + " hari (segera berakhir)";
+  return Math.round(days / 30) + " bulan";
 }
 
+/* ---------- MUAT SVG (cache + deteksi encoding) ---------- */
+const svgCache = new Map();
+
 async function loadSVG(file) {
-  const res = await fetch(file);
-  if (!res.ok) throw new Error("SVG tidak ditemukan: " + file);
-  mapEl.innerHTML = await res.text();
+  if (!svgCache.has(file)) {
+    const res = await fetch(file);
+    if (!res.ok) throw new Error("SVG tidak ditemukan: " + file);
+
+    const buf = await res.arrayBuffer();
+    const b = new Uint8Array(buf);
+    const enc =
+      b[0] === 0xff && b[1] === 0xfe
+        ? "utf-16le"
+        : b[0] === 0xfe && b[1] === 0xff
+          ? "utf-16be"
+          : "utf-8";
+
+    // Buang deklarasi XML dan DOCTYPE agar aman dimasukkan ke HTML
+    const text = new TextDecoder(enc)
+      .decode(buf)
+      .replace(/<\?xml[^>]*\?>|<!DOCTYPE[^>]*>/g, "");
+    svgCache.set(file, text);
+  }
+  mapEl.innerHTML = svgCache.get(file);
 }
 
 /* ---------- RENDER (satu pintu) ---------- */
 async function render() {
   detailEl.hidden = true;
   backBtn.hidden = state.view === "area";
-  sidebarEl.hidden = state.view !== "plan"; // <- pindah ke sini
+  sidebarEl.hidden = state.view !== "plan";
 
   try {
     if (state.view === "area") await showArea();
@@ -90,7 +136,6 @@ async function showArea() {
     if (!b.active) el.classList.add("inactive");
 
     el.addEventListener("click", () => {
-      console.log("Gedung diklik:", b.id);
       if (!b.active) {
         alert(b.name + " belum tersedia.");
         return;
@@ -119,7 +164,6 @@ function showFloors() {
     const btn = document.createElement("button");
     btn.textContent = f.name;
     btn.addEventListener("click", () => {
-      console.log("Lantai dipilih:", f.id);
       state.floorId = f.id;
       state.view = "plan";
       render();
@@ -147,20 +191,33 @@ async function showFloorPlan() {
   });
 
   addLabels(f.rooms);
+  buildSummary(f.rooms);
   buildUnitList(f.rooms);
 }
 
-/* ---------- LEGENDA & DAFTAR UNIT ---------- */
-function buildLegend() {
-  legendEl.innerHTML = Object.values(STATUS)
-    .map(
-      (s) => `<div class="legend-item">
-                <span class="swatch" style="background:${s.color}"></span>${s.label}
-              </div>`,
-    )
-    .join("");
+/* ---------- RINGKASAN + LEGENDA ---------- */
+function buildSummary(rooms) {
+  const list = Object.values(rooms);
+
+  const rows = Object.entries(STATUS).map(([key, s]) => {
+    const n = list.filter((r) => statusOf(r) === key).length;
+    return `<div class="sum-item">
+              <span class="swatch" style="background:${s.color}"></span>${s.label}<b>${n}</b>
+            </div>`;
+  });
+
+  const expiring = list.filter((r) => {
+    const d = daysLeft(r.end);
+    return d !== null && d >= 0 && d <= 90;
+  }).length;
+
+  summaryEl.innerHTML =
+    `<div class="sum-item">Total unit<b>${list.length}</b></div>` +
+    rows.join("") +
+    `<div class="sum-item sum-warn">Kontrak berakhir ≤ 90 hari<b>${expiring}</b></div>`;
 }
 
+/* ---------- DAFTAR UNIT ---------- */
 function buildUnitList(rooms) {
   unitListEl.innerHTML = "";
   Object.entries(rooms).forEach(([roomId, room]) => {
@@ -179,7 +236,7 @@ function buildUnitList(rooms) {
 /* ---------- LABEL RUANG ---------- */
 function addLabels(rooms) {
   const svg = mapEl.querySelector("svg");
-  const FONT = 26; // satuan SVG, sesuaikan jika terlalu besar/kecil
+  const FONT = 26; // satuan SVG, samakan dengan .room-label di CSS
 
   Object.entries(rooms).forEach(([roomId, room]) => {
     const el = findById(roomId);
@@ -202,7 +259,7 @@ function addLabels(rooms) {
     });
     lines.push(line);
 
-    const t = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    const t = document.createElementNS(SVG_NS, "text");
     t.setAttribute("class", "room-label");
     t.setAttribute("text-anchor", "middle");
     t.setAttribute("pointer-events", "none");
@@ -212,10 +269,7 @@ function addLabels(rooms) {
       box.y + box.height / 2 - ((lines.length - 1) * FONT * 1.1) / 2;
 
     lines.forEach((l, i) => {
-      const span = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "tspan",
-      );
+      const span = document.createElementNS(SVG_NS, "tspan");
       span.setAttribute("x", cx);
       span.setAttribute("y", startY + i * FONT * 1.1);
       span.setAttribute("dominant-baseline", "middle");
@@ -229,13 +283,10 @@ function addLabels(rooms) {
 
 /* ---------- TAHAP 4: DETAIL RUANG ---------- */
 function selectRoom(roomId) {
-  console.log("Ruang dipilih:", roomId);
-  state.roomId = roomId;
-
   mapEl
     .querySelectorAll(".room.selected")
     .forEach((e) => e.classList.remove("selected"));
-  findById(roomId).classList.add("selected");
+  findById(roomId)?.classList.add("selected");
 
   document
     .querySelectorAll(".unit-item")
@@ -244,9 +295,33 @@ function selectRoom(roomId) {
   showDetail(roomId);
 }
 
+function showDetail(roomId) {
+  const room = getFloor().rooms[roomId];
+  const st = STATUS[statusOf(room)];
+
+  const rows = [
+    ["Tenant", room.tenant],
+    ["Status", `<span style="color:${st.color}">${st.label}</span>`],
+    ["Pembayaran", room.payment],
+    ["Luas", room.area ? room.area + " m²" : "-"],
+    ["Mulai sewa", fmtDate(room.start)],
+    ["Berakhir", fmtDate(room.end)],
+    ["Sisa kontrak", remainingText(room.end)],
+    ["Sewa / bulan", fmtRupiah(room.rent)],
+    ["PIC", room.pic || "-"],
+    ["Kontak", room.contact || "-"],
+  ];
+
+  document.getElementById("dUnit").textContent = "Unit " + roomId;
+  document.getElementById("dRows").innerHTML = rows
+    .map(([k, v]) => `<p>${k}: <b>${v}</b></p>`)
+    .join("");
+
+  detailEl.hidden = false;
+}
+
 /* ---------- TAHAP 5: KEMBALI ---------- */
 function goBack() {
-  state.roomId = null;
   if (state.view === "plan") state.view = "floors";
   else if (state.view === "floors") {
     state.view = "area";
@@ -258,5 +333,5 @@ function goBack() {
 backBtn.addEventListener("click", goBack);
 
 /* ---------- MULAI ---------- */
-buildLegend();
+prepareData();
 render();
