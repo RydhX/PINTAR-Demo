@@ -42,9 +42,23 @@ body {
 
 /* Interaksi peta */
 .clickable { cursor: pointer; }
-.room:hover { fill-opacity: 0.6 !important; }
-.room.selected { stroke: #1d4ed8; stroke-width: 3; vector-effect: non-scaling-stroke; }
 .room-label { font-size: 26px; font-weight: 600; fill: #1e293b; }
+
+#map .room {
+  fill: var(--room-color);
+  fill-opacity: 0.3;
+  transition: fill-opacity 0.15s ease;
+}
+#map .room:hover { fill-opacity: 0.55; }
+#map .room.selected {
+  stroke: #1d4ed8;
+  stroke-width: 3px;
+}
+
+#map [id$="coridor"] { fill: #f1f5f9; }
+#map [id^="L2_LF"]   { fill: #e2e8f0; }  /* lift */
+#map [id^="L2_ST"]   { fill: #e2e8f0; }  /* tangga */
+#map [id^="L2_TL"]   { fill: #dbeafe; }  /* toilet */
 
 /* Pilih lantai */
 .floor-selection { padding: 40px; }
@@ -58,3 +72,10 @@ body {
 
 /* Gedung yang belum tersedia: sedikit pudar, kursor biasa */
 .building.inactive { opacity: 0.6; cursor: not-allowed; }
+
+/* Garis tepi semua bentuk di peta */
+#map svg .str0 {
+  stroke: #64748b;
+  stroke-width: 1.5px;
+  vector-effect: non-scaling-stroke; /* tebal garis tetap saat di-zoom */
+}

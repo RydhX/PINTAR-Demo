@@ -142,7 +142,7 @@ async function showFloorPlan() {
       return;
     }
     el.classList.add("clickable", "room");
-    paint(el, STATUS[statusOf(room)].color, 0.35);
+    el.style.setProperty("--room-color", STATUS[statusOf(room)].color);
     el.addEventListener("click", () => selectRoom(roomId));
   });
 
