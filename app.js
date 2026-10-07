@@ -141,6 +141,59 @@ async function showFloorPlan() {
     paint(el, STATUS[statusOf(room)].color, 0.35);
     el.addEventListener("click", () => selectRoom(roomId));
   });
+
+  addLabels(f.rooms);
+}
+
+/* ---------- LABEL RUANG ---------- */
+function addLabels(rooms) {
+  const svg = mapEl.querySelector("svg");
+  const FONT = 26; // satuan SVG, sesuaikan jika terlalu besar/kecil
+
+  Object.entries(rooms).forEach(([roomId, room]) => {
+    const el = findById(roomId);
+    if (!el) return;
+
+    const box = el.getBBox();
+    const text = room.status === "vacant" ? "KOSONG" : room.tenant;
+
+    // Pecah teks menjadi beberapa baris sesuai lebar ruang
+    const maxChars = Math.max(6, Math.floor(box.width / (FONT * 0.6)));
+    const lines = [];
+    let line = "";
+    text.split(" ").forEach((word) => {
+      if ((line + " " + word).trim().length > maxChars && line) {
+        lines.push(line);
+        line = word;
+      } else {
+        line = (line + " " + word).trim();
+      }
+    });
+    lines.push(line);
+
+    const t = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    t.setAttribute("class", "room-label");
+    t.setAttribute("text-anchor", "middle");
+    t.setAttribute("pointer-events", "none");
+
+    const cx = box.x + box.width / 2;
+    const startY =
+      box.y + box.height / 2 - ((lines.length - 1) * FONT * 1.1) / 2;
+
+    lines.forEach((l, i) => {
+      const span = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "tspan",
+      );
+      span.setAttribute("x", cx);
+      span.setAttribute("y", startY + i * FONT * 1.1);
+      span.setAttribute("dominant-baseline", "middle");
+      span.textContent = l;
+      t.appendChild(span);
+    });
+
+    svg.appendChild(t);
+  });
 }
 
 /* ---------- TAHAP 4: DETAIL RUANG ---------- */

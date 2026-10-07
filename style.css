@@ -41,7 +41,6 @@ body {
   stroke-width: 3;
   vector-effect: non-scaling-stroke;
 }
-
 .floor-selection {
   padding: 40px;
 }
@@ -59,4 +58,9 @@ body {
   padding: 40px;
   color: #dc2626;
   font-weight: bold;
+}
+.room-label {
+  font-size: 26px;
+  font-weight: 600;
+  fill: #1e293b;
 }
