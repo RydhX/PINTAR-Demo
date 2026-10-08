@@ -696,3 +696,300 @@ body {
     padding: 26px 18px;
   }
 }
+
+/* ---------- Tampilan awal dan konteks peta ---------- */
+:root {
+  --bg: #f2f6fb;
+  --primary: #155b9a;
+  --line: #e3eaf2;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 88% 3%, rgba(202, 225, 247, 0.34), transparent 30%),
+    var(--bg);
+}
+
+.topbar {
+  min-height: 76px;
+  padding: 12px clamp(18px, 3vw, 42px);
+  border-bottom-color: rgba(220, 229, 239, 0.85);
+  box-shadow: 0 4px 18px rgba(23, 49, 78, 0.035);
+}
+
+.brand {
+  gap: 13px;
+  padding-right: clamp(16px, 2vw, 28px);
+}
+
+.logo {
+  width: 62px;
+  height: 42px;
+}
+
+.brand b {
+  color: #173451;
+  font-size: 14px;
+  letter-spacing: 0.075em;
+}
+
+.brand small {
+  color: #74869a;
+  font-size: 11px;
+}
+
+.topbar-location {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-left: auto;
+  padding: 8px 13px;
+  border: 1px solid #e5edf5;
+  border-radius: 12px;
+  background: #f9fbfd;
+}
+
+.location-mark {
+  width: 10px;
+  height: 10px;
+  border: 3px solid #dcebf7;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 3px rgba(21, 91, 154, 0.08);
+}
+
+.topbar-location small {
+  display: block;
+  margin-bottom: 2px;
+  color: #8796a8;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.11em;
+}
+
+.topbar-location h1 {
+  margin: 0;
+  color: #263d56;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: clamp(16px, 2.2vw, 30px);
+}
+
+.stage-heading {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 2px 3px 0;
+}
+
+.stage-eyebrow {
+  display: inline-block;
+  margin-bottom: 5px;
+  color: #47779f;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+}
+
+.stage-heading h2 {
+  margin: 0;
+  color: #18344f;
+  font-size: clamp(19px, 2vw, 24px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.stage-heading p {
+  margin: 5px 0 0;
+  color: #74869a;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.stage-badge {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  border: 1px solid #dfeaf4;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #49647d;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.stage-badge span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #54a578;
+  box-shadow: 0 0 0 3px rgba(84, 165, 120, 0.12);
+}
+
+#map {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  border-color: #e2eaf2;
+  border-radius: 18px;
+  background-color: #fff;
+  background-image: radial-gradient(#e9eff5 0.8px, transparent 0.8px);
+  background-position: 10px 10px;
+  background-size: 20px 20px;
+  box-shadow:
+    0 2px 5px rgba(25, 53, 80, 0.025),
+    0 15px 38px rgba(25, 53, 80, 0.075);
+}
+
+#map svg {
+  display: block;
+  touch-action: none;
+  cursor: grab;
+}
+
+#map.dragging svg {
+  cursor: grabbing;
+}
+
+.hint {
+  bottom: 30px;
+  max-width: calc(100% - 48px);
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  background: rgba(23, 49, 75, 0.94);
+  box-shadow: 0 8px 22px rgba(23, 49, 75, 0.18);
+  font-size: 11px;
+  font-weight: 550;
+}
+
+.map-controls {
+  top: 118px;
+  right: clamp(27px, 3vw, 42px);
+}
+
+.map-controls button {
+  border-color: #e2eaf2;
+  color: #294761;
+}
+
+@media (max-width: 900px) {
+  .stage {
+    height: 68vh;
+    min-height: 440px;
+    padding: 18px;
+  }
+
+  .map-controls {
+    top: 112px;
+    right: 26px;
+  }
+}
+
+@media (max-width: 520px) {
+  .topbar {
+    min-height: 62px;
+    padding: 9px 14px;
+  }
+
+  .brand {
+    gap: 9px;
+    padding-right: 12px;
+  }
+
+  .brand small {
+    display: none;
+  }
+
+  .logo {
+    width: 48px;
+    height: 34px;
+  }
+
+  .topbar-location {
+    gap: 8px;
+    padding: 7px 9px;
+  }
+
+  .topbar-location small {
+    font-size: 8px;
+  }
+
+  .topbar-location h1 {
+    font-size: 11px;
+  }
+
+  #backBtn {
+    order: initial;
+    margin-left: 0;
+    padding: 7px 9px;
+    font-size: 11px;
+  }
+
+  .stage {
+    height: 66vh;
+    min-height: 390px;
+    gap: 11px;
+    padding: 14px 12px;
+  }
+
+  .stage-heading {
+    gap: 8px;
+  }
+
+  .stage-eyebrow {
+    margin-bottom: 3px;
+    font-size: 9px;
+  }
+
+  .stage-heading h2 {
+    font-size: 18px;
+  }
+
+  .stage-heading p {
+    max-width: 255px;
+    margin-top: 3px;
+    font-size: 11px;
+  }
+
+  .stage-badge {
+    gap: 6px;
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+
+  #map {
+    border-radius: 14px;
+  }
+
+  .map-controls {
+    top: 105px;
+    right: 21px;
+  }
+
+  .hint {
+    bottom: 22px;
+    padding: 8px 12px;
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

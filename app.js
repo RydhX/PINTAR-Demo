@@ -1,6 +1,6 @@
 /* =========================================================
    PINTAR v2
-   Alur: Area 77 -> pilih gedung -> pilih lantai -> pilih ruang
+   Alur: lokasi -> pilih gedung -> pilih lantai -> pilih ruang
    Aturan: klik hanya mengubah state, lalu render() menggambar ulang.
 ========================================================= */
 
@@ -169,9 +169,9 @@ function checkSvgAgainstData(rooms = {}) {
   }
 }
 
-/* ---------- TAHAP 1: AREA 77 ---------- */
+/* ---------- TAHAP 1: LOKASI ---------- */
 async function showArea() {
-  titleEl.textContent = "Area 77 - PT INTI";
+  titleEl.textContent = "Jl. Moch Toha No. 77 - PT INTI";
   await loadSVG(AREA_SVG);
 
   DATA.buildings.forEach((b) => {
